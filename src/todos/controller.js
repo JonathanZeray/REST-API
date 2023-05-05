@@ -24,23 +24,13 @@ const getTodoById = (req, res) => {
 
 const addTodo = (req, res) => {
   const { tasks, email } = req.body;
-  // check if email already exists
-  // pool.query(queries.checkEmailExists, [email], (error, results) => {
-  //   if (results.rows.length) {
-  //     res.send("Email already taken.");
-  //   }
-    // add todo to db
-    pool.query(
-      queries.addTodo,
-      [tasks, email],
-      (error, results) => {
-        if (error) throw error;
-        res.status(201).send("New todo added successfully!");
-        console.log("Todo created");
-      }
-    );
-  };
-
+  // add todo to db
+  pool.query(queries.addTodo, [tasks, email], (error, results) => {
+    if (error) throw error;
+    res.status(201).send("New todo added successfully!");
+    console.log("Todo created");
+  });
+};
 
 // DELETE request to remove Todo from table in DB.
 

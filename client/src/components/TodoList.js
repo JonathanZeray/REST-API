@@ -34,7 +34,7 @@ function handleDelete(id) {
     .delete(`http://localhost:8000/api/v1/todos/${id}`)
     .then(() => {
       // Update the frontend by filtering out the deleted item
-      setItems(items.filter(item => item.id !== parseInt(id))); /* ask about this line */
+      setItems(items.filter(item => item.id !== parseInt(id))); 
       console.log("Successfully deleted");
     })
     .catch(error => {
